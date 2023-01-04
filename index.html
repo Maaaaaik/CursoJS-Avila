@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>VoLAT</title>
+</head>
+<body>
+    <header>
+        <h1>Vienvenidos a VoLAT</h1>
+        <h2>Vuelos en latinoamerica</h2>
+    </header>
+    <nav>
+        <ul>
+            <li>Inicio</li>
+            <li>Contacto</li>
+            <li>Informacion importante</li>
+            <li>FAQ</li>
+        </ul>
+    </nav>
+    <div  class="destinos">
+      <h2>¿Hacia donde te gustaria viajar?</h2>
+        <h3>Destinos disponibles por el momento</h3>
+        <div id="containerDestinos">
+        </div>
+    </div>
+    <div id="pasajeros">
+        <h2>Indica cuantos pasajeros van a viajar</h2>
+
+        <form id="cantPasajeros">
+             <input id="numeroPasajeros" type="text" name="Indicar cantidad de pasajeros">
+        </form>
+
+    </div>
+    <div id="equipajes" class="equipaje">
+        <h2>Selecciona el equipaje para cada pasajero</h2>
+        <div id="selectorEquipaje">
+
+        </div>
+        <div class="infoEquipaje">
+            <div>
+                <Img></Img>
+                <h3>Equipaje minimo</h3>
+                <p>Equipaje de mano hasta 06 kg</p>
+                <p>Desde $2.599</p>
+            </div>
+            <div>
+                <Img></Img>
+                <h3>Equipaje medio</h3>
+                <p>Equipaje en bodega de hasta 12Kg</p>
+                <p>Desde $3.599</p>
+            </div>
+            <div>
+                <Img></Img>
+                <h3>Equipaje grande</h3>
+                <p>Equipaje en bodega de hasta 20Kg</p>
+                <p>Desde $4.599</p>
+            </div>
+        </div>
+   </div>
+   <div id="ticket">
+    <h2>Precio final de tu vuelo</h2>
+   </div>
+    <script src="/script.js"></script>
+</body>
+
+</html>

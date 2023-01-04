@@ -1,0 +1,70 @@
+header {
+    text-align: center;
+    height: 100px;
+}
+nav ul{
+    height: 50px;
+    list-style: none;
+    text-align: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.destinos h2 {
+    margin-top: 40px;
+    margin-bottom: 0px;
+padding-left: 80px;
+}
+.destinos h3 {
+    margin-top: 10px;
+    padding-left: 90px;
+}
+.destino{
+    text-align: center;
+}
+#containerDestinos {
+    display: flex;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.destino {
+   margin: auto;
+}
+
+.destino h3{
+    user-select: none;
+}
+#pasajeros {
+    display: none;
+    padding-left: 80px;
+}
+#cantPasajeros {
+    display: none;
+}
+.selectores { 
+    margin: auto;
+    padding: 10px;
+    padding-left: 110px;
+}
+#equipajes {
+    display: none;
+}
+.equipaje h2{
+    padding-left: 80px;
+}
+.infoEquipaje {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.infoEquipaje div { 
+    text-align: center;
+    align-content: center;
+}
+#ticket {
+    border: 2px solid black;
+    width: 600px;
+    height: 200px;
+    border: 8px;
+}
