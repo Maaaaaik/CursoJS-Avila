@@ -1,11 +1,11 @@
-const BV = {id: 0, destino:"Bolivia", valor: 8000}
-const CH = {id: 1, destino:"Chile" ,valor: 9200}
-const MX = {id: 2, destino:"Mexico" ,valor: 40000}
-const BR = {id: 3, destino:"Brasil" ,valor: 20000}
-const VZ = {id: 4, destino:"Venezuela",valor: 20000}
-const UGY = {id: 5, destino:"Uruguay" ,valor: 8000}
+const BV = { id: 0, destino: "Bolivia", valor: 8000 }
+const CH = { id: 1, destino: "Chile", valor: 9200 }
+const MX = { id: 2, destino: "Mexico", valor: 40000 }
+const BR = { id: 3, destino: "Brasil", valor: 20000 }
+const VZ = { id: 4, destino: "Venezuela", valor: 20000 }
+const UGY = { id: 5, destino: "Uruguay", valor: 8000 }
 
-let paises = [BV, CH, MX, BR , VZ, UGY]
+let paises = [BV, CH, MX, BR, VZ, UGY]
 let totalViaje = []
 
 let equipajeMinimo = 2000
@@ -24,7 +24,7 @@ let selectorEquipajes = document.getElementById("selectorEquipaje")
 for (const pais of paises) {
     let tarjetasDestino = document.createElement("div")
     tarjetasDestino.className = "destino"
-    tarjetasDestino.id = "pais"+pais.id
+    tarjetasDestino.id = "pais" + pais.id
     tarjetasDestino.innerHTML = `
     <img>
     <h4> ${pais.destino} </h4>
@@ -34,15 +34,14 @@ for (const pais of paises) {
     contenedorDestinos.append(tarjetasDestino)
 }
 let botones = document.getElementsByClassName("boton")
-  for (const boton of botones) {
+for (const boton of botones) {
     boton.addEventListener("click", seleccionarPais)
     boton.addEventListener("click", preguntarCuantosPasajeros)
-  }
+}
 function seleccionarPais(e) {
     let paisSeleccionado = paises.find(pais => pais.id == e.target.id)
     totalViaje.push(paisSeleccionado)
-    renderizarTotal(totalViaje)
-  }
+}
 
 function preguntarCuantosPasajeros() {
     document.getElementById("pasajeros").style.display = "block"
@@ -50,17 +49,18 @@ function preguntarCuantosPasajeros() {
 }
 
 
-cantPasajeros.addEventListener("change", formularioEquipaje)
+cantPasajeros.addEventListener("input", formularioEquipaje)
 
 
-function formularioEquipaje(e){
+
+function formularioEquipaje(e) {
     document.getElementById("equipajes").style.display = "block"
-    for (i=1; i <= e.target.value; i++){
+    for (i = 1; i <= e.target.value; i++) {
         let selectores = document.createElement("div")
         selectores.id = "selector" + i
         selectores.className = "selectores"
         selectores.innerHTML = `
-        <h3>Equipaje del pasajero ${ i } </h3>
+        <h3>Equipaje del pasajero ${i} </h3>
         <select id="tamañoEquipaje" name="simple">
         <option selected>Minimo</option>
         <option>Medio</option>
@@ -68,27 +68,30 @@ function formularioEquipaje(e){
         </select>
         `
         selectorEquipajes.append(selectores)
-    } 
-
-    totalViaje.push({pasajeros: e.target.value})
-    console.log(totalViaje)
-    console.log(totalViaje.at(1).pasajeros)
     }
-   
+    cantPasajeros.removeEventListener("input", formularioEquipaje)
+    totalViaje.push({ pasajeros: e.target.value })
+    renderizarTotal(totalViaje)
+}
 
-function renderizarTotal(arrayDelTotal) {
-    for (const p of arrayDelTotal) {
-      ticket.innerHTML = `
-        <div id=ticket>
+
+
+
+function renderizarTotal(totalViaje) {
+    document.getElementById("ticket").style.display = "block"
+    for (const p of totalViaje) {
+        ticket.innerHTML = `
+        <div id=tickets>
         <h2>Precio final de tu vuelo</h2>
-         <img src=${p.img}>
-          <p>${p.destino}</p>
-          <p>${p.valor}</p>
-          <p>X ${totalViaje.at(1).pasajeros} </p>
+         <img src=${totalViaje.at(0).img}>
+          <p>${totalViaje.at(0).destino}</p>
+          <p>$${totalViaje.at(0).valor}</p>
+          <p>X ${totalViaje.at(1).pasajeros} pasajeros</p>
         </div>
          `
     }
 }
+
 
 /* function calcularEquipaje() {
     return (contadorEquipajeGrande * equipajeGrande + contadorEquipajeMedio * equipajeMedio + contadorEquipajeMinimo * equipajeMinimo)
