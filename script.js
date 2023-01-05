@@ -61,11 +61,13 @@ function formularioEquipaje(e) {
         selectores.className = "selectores"
         selectores.innerHTML = `
         <h3>Equipaje del pasajero ${i} </h3>
-        <select id="tamañoEquipaje" name="simple">
-        <option selected>Minimo</option>
-        <option>Medio</option>
-        <option>Grande</option>
+        <form>
+        <select class="tamañoEquipaje" name="simple">
+        <option selected value=minimo>Minimo</option>
+        <option value=medio>Medio</option>
+        <option value=grande>Grande</option>
         </select>
+        </form>
         `
         selectorEquipajes.append(selectores)
     }
@@ -91,6 +93,16 @@ function renderizarTotal(totalViaje) {
          `
     }
 }
+
+let seleccionar = document.getElementsByClassName("tamañoEquipaje")
+for (const seleccion of seleccionar) {
+    seleccion.addEventListener("input", seleccionado)
+}
+function seleccionado(e) {
+    console.log(e.target)
+}
+
+
 
 
 /* function calcularEquipaje() {
