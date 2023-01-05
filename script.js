@@ -93,7 +93,6 @@ function renderizarTotal(totalViaje) {
          `
     }
 }
-
 let seleccionar = document.getElementsByClassName("tamañoEquipaje")
 for (const seleccion of seleccionar) {
     seleccion.addEventListener("input", seleccionado)
@@ -101,6 +100,7 @@ for (const seleccion of seleccionar) {
 function seleccionado(e) {
     console.log(e.target)
 }
+
 
 
 
