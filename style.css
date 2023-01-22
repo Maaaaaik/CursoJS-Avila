@@ -1,6 +1,61 @@
+@font-face {
+    font-family: 'Gsans';
+    src: url(Otros/Fonts/ProductSansRegular.ttf) format(truetype);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'GsansI';
+    src: url(Otros/Fonts/ProductSansItalic.ttf) format(truetype);
+}
+
+@font-face {
+    font-family: 'GsansB';
+    src: url(Otros/Fonts/ProductSansBold.ttf) format(truetype);
+}
+
+html body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+body {
+    font-style: normal;
+    font-family: "Gsans", sans-serif;
+    background: rgb(255, 249, 114);
+    background: linear-gradient(133deg, rgba(255, 249, 114, 1) 0%, rgba(133, 249, 255, 1) 100%);
+    transition: 2s;
+}
+
 header {
     text-align: center;
-    height: 100px;
+    height: 200px;
+}
+
+header .titulo {
+    padding: 40px;
+    margin-right: 150px;
+}
+
+header h1 {
+    margin: 10px;
+}
+
+header .icono {
+    position: relative;
+    left: 180px;
+    bottom: 155px;
+}
+
+header div img {
+    max-width: 110px
+}
+
+nav {
+    margin-bottom: 30px;
+    margin-top: -16px;
+    background-color: #f8ff8f;
 }
 
 nav ul {
@@ -12,6 +67,8 @@ nav ul {
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+
+
 .destinos h2 {
     margin-top: 40px;
     margin-bottom: 0px;
@@ -20,21 +77,56 @@ nav ul {
 
 .destinos h3 {
     margin-top: 10px;
+    margin-bottom: 50px;
     padding-left: 90px;
 }
 
 .destino {
+    border-radius: 20px;
     text-align: center;
+    backdrop-filter: brightness(80%);
+    font-size: larger;
+    transition: 0.5s;
+}
+
+.destino:hover {
+    backdrop-filter: brightness(88%);
+    color: white;
 }
 
 #containerDestinos {
     display: flex;
     margin-left: 60px;
     margin-right: 60px;
+    gap: 20px;
+}
+
+.btn-grad {
+    background: #85f9ff;
+    margin: 15px;
+    margin-top: 20px;
+    padding: 15px 25px;
+    text-align: center;
+    font-weight: bolder;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: darkslategray;
+    border-radius: 10px;
+    display: block;
+    border-width: 0ch;
+}
+
+.btn-grad:hover {
+    background: rgb(255, 249, 114);
+    color: black;
+    text-decoration: none;
+    transition: 0.5s;
 }
 
 .destino {
     margin: auto;
+    padding: 20px 0px;
 }
 
 .destino h3 {
@@ -44,28 +136,85 @@ nav ul {
 #pasajeros {
     display: none;
     padding-left: 80px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+#divPasajeros {
+    margin: 40px;
+}
+
+.cajaPasajeros {
+    padding: 10px;
+    margin: 10px 10px;
+    border: 30px;
+    width: 60px;
+    transition: 0.5s;
+    border-color: #85f9ff;
+    border-radius: 10px;
+    background: rgb(133, 249, 255);
+
+}
+
+.cajaPasajeros:focus {
+    border-width: 0px;
+}
+
+.cajaPasajeros:hover {
+    background-color: #fff972;
+
 }
 
 #cantPasajeros {
     display: none;
 }
 
+#cantPasajeros label {
+    font-weight: bolder;
+}
+
+#selectorEquipaje {
+    display: flex;
+    gap: 30px;
+    padding: 30px 80px;
+}
+
+
 .selectores {
-    margin: auto;
-    padding: 10px;
-    padding-left: 110px;
+    flex-grow: 1;
+    text-align: center;
+    backdrop-filter: brightness(80%);
+    border-radius: 20px;
+    padding: 20px 20px;
 }
 
 #equipajes {
     display: none;
+    margin: 60px 0px;
 }
 
 .equipaje h2 {
     padding-left: 80px;
 }
 
+.Tequipaje {
+    padding: 10px;
+    margin: 10px 10px;
+    border: 0px;
+    border-radius: 20px;
+    width: 80%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.127L12 18.127L20 10.127H4Z" fill="%238E8E93"/></svg>');
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: 90%;
+}
+
 .infoEquipaje {
     display: grid;
+    margin: 40px 0px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -76,8 +225,14 @@ nav ul {
 
 #ticket {
     display: none;
-    border: 2px solid black;
+    background-color: #f8ff8f;
+    border: 8px solid rgba(255, 249, 114, 1);
+    border-radius: 20px;
     width: 600px;
-    height: 200px;
-    border: 8px;
+    height: auto;
+    padding: 20px;
+    margin: 30px;
+    margin-top: 50px;
+    text-align: center;
+    color: darkslategray;
 }

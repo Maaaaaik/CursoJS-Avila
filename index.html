@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="/style.css">
     <title>VoLAT</title>
 </head>
+
 <body>
-    <header>
-        <h1>Vienvenidos a VoLAT</h1>
-        <h2>Vuelos en latinoamerica</h2>
-    </header>
     <nav>
         <ul>
             <li>Inicio</li>
@@ -21,19 +19,34 @@
             <li>FAQ</li>
         </ul>
     </nav>
-    <div  class="destinos">
-      <h2>¿Hacia donde te gustaria viajar?</h2>
+    <header>
+        <div class="titulo">
+            <h1>Vienvenido a VoLAT</h1>
+            <h2>Vuelos en latinoamerica</h2>
+        </div>
+        <div class="icono"><img src="Otros/avion.png" alt=""></div>
+
+
+    </header>
+
+    <div class="destinos">
+        <h2>¿Hacia donde te gustaria viajar?</h2>
         <h3>Destinos disponibles por el momento</h3>
         <div id="containerDestinos">
         </div>
     </div>
     <div id="pasajeros">
         <h2>Indica cuantos pasajeros van a viajar</h2>
+        <div id="divPasajeros">
 
-        <form id="cantPasajeros">
-             <input id="numeroPasajeros" type="text" name="Indicar cantidad de pasajeros">
-        </form>
+            <img src="Otros/Cuantos pasajeros.png" alt="">
 
+            <form id="cantPasajeros">
+                <label for="indicar">Cantidad de pasajeros</label>
+                <input id="numeroPasajeros" class="cajaPasajeros" type="text" label="indicar"
+                    style="text-align: center;">
+            </form>
+        </div>
     </div>
     <div id="equipajes" class="equipaje">
         <h2>Selecciona el equipaje para cada pasajero</h2>
@@ -42,29 +55,33 @@
         </div>
         <div class="infoEquipaje">
             <div>
-                <Img></Img>
+
                 <h3>Equipaje minimo</h3>
                 <p>Equipaje de mano hasta 06 kg</p>
+                <Img src="Otros/mochila minimo.png">
                 <p>Desde $2.599</p>
             </div>
             <div>
-                <Img></Img>
+
                 <h3>Equipaje medio</h3>
                 <p>Equipaje en bodega de hasta 12Kg</p>
+                <Img src="Otros/maleta.png">
                 <p>Desde $3.599</p>
             </div>
             <div>
-                <Img></Img>
+
                 <h3>Equipaje grande</h3>
                 <p>Equipaje en bodega de hasta 20Kg</p>
+                <Img src=" Otros/equioaje grande.png">
                 <p>Desde $4.599</p>
             </div>
         </div>
-   </div>
-   <div id="ticket">
-    <h2>Precio final de tu vuelo</h2>
-   </div>
+    </div>
+    <div id="ticket">
+        <h2>Precio final de tu vuelo</h2>
+    </div>
     <script src="/script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>

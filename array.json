@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "destino": "Bolivia",
+        "valor": 8000
+    },
+    {
+        "id": 1,
+        "destino": "Chile",
+        "valor": 9200
+    },
+    {
+        "id": 2,
+        "destino": "Mexico",
+        "valor": 40000
+    },
+    {
+        "id": 3,
+        "destino": "Brasil",
+        "valor": 20000
+    },
+    {
+        "id": 4,
+        "destino": "Venezuela",
+        "valor": 20000
+    },
+    {
+        "id": 5,
+        "destino": "Uruguay",
+        "valor": 8000
+    }
+]
