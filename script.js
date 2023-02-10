@@ -6,18 +6,15 @@ fetch("./array.json")
 function programa(paises) {
     let totalViaje = []
 
-    let equipajeMinimo = 2000
-    let equipajeMedio = 3000
-    let equipajeGrande = 4000
-
-    let contadorEquipajeMinimo = 0
-    let contadorEquipajeMedio = 0
-    let contadorEquipajeGrande = 0
+    let equipajeMinimo = 2599
+    let equipajeMedio = 3599
+    let equipajeGrande = 4599
 
     let ticket = document.getElementById("ticket")
     let cantPasajeros = document.getElementById("numeroPasajeros")
     let contenedorDestinos = document.getElementById("containerDestinos")
     let selectorEquipajes = document.getElementById("selectorEquipaje")
+    let botonFinal = document.getElementById("mascaraBoton")
 
     for (const pais of paises) {
         let tarjetasDestino = document.createElement("div")
@@ -43,13 +40,15 @@ function programa(paises) {
                 position: "right",
                 stopOnFocus: true
             }).showToast()
-            boton.removeEventListener("click",)
+            boton.removeEventListener("click", seleccionarPais)
         })
 
     }
     function seleccionarPais(e) {
         let paisSeleccionado = paises.find(pais => pais.id == e.target.id)
         totalViaje.push(paisSeleccionado)
+        let paisSeleccionadoEnJSON = JSON.stringify(paisSeleccionado)
+        localStorage.setItem("pais", paisSeleccionadoEnJSON)
     }
 
     function preguntarCuantosPasajeros() {
@@ -62,6 +61,7 @@ function programa(paises) {
     function formularioEquipaje(e) {
         let numeroDePasajeros = 0
         numeroDePasajeros = e.target.value
+        localStorage.setItem("pasajeros", numeroDePasajeros)
         document.getElementById("equipajes").style.display = "block"
         for (i = 1; i <= e.target.value; i++) {
             let selectores = document.createElement("div")
@@ -70,7 +70,7 @@ function programa(paises) {
             selectores.innerHTML = `
         <h3>Equipaje del pasajero ${i} </h3>
         <form>
-        <select class="Tequipaje">
+        <select class="Tequipaje" id="${i}">
         <option> Selecconar </option>
         <option value=${equipajeMinimo}>Minimo</option>
         <option value=${equipajeMedio}>Medio</option>
@@ -81,22 +81,47 @@ function programa(paises) {
             selectorEquipajes.append(selectores)
         }
         cantPasajeros.removeEventListener("input", formularioEquipaje)
-        totalViaje.push({ pasajeros: e.target.value })
-        renderizarTotal(totalViaje)
+        totalViaje.push({ pasajeros: parseInt(e.target.value) })
 
+        let cuenta = 0
         let seleccionar = document.getElementsByClassName("Tequipaje");
         for (const seleccion of seleccionar) {
-            seleccion.addEventListener("change", seleccionado);
+            seleccion.addEventListener("input", seleccionado);
+            if (cuenta >= totalViaje.at(1).pasajeros) {
+                seleccionar.removeEventListener("input", seleccionado)
+            }
         }
+
+
         function seleccionado(e) {
-            totalViaje.push({ equipaje: parseInt(e.target.value) })
+            cuenta++
+            totalViaje.push({ equipaje: parseInt(e.target.value), id: parseInt(e.target.id) })
+            console.log(totalViaje)
             let cantDeEquipaje = totalViaje.slice(2, numeroDePasajeros + 1)
-            console.log(cantDeEquipaje)
             let totalEquipajes = cantDeEquipaje.reduce((acumulador, valorActual) => acumulador + valorActual.equipaje, 0)
-            console.log(totalEquipajes)
+            if (cuenta >= totalViaje.at(1).pasajeros) {
+                totalViaje.push({ totalEquipaje: totalEquipajes })
+                localStorage.setItem("total equipaje", totalEquipajes)
+                document.getElementById("mascaraBoton").style.display = "block"
+
+            }
+            renderizarTotal(totalViaje)
         }
+        renderizarTotal(totalViaje)
     }
 
+    botonFinal.addEventListener("click", success)
+
+    function success() {
+        Swal.fire({
+            title: '¡Muy bien!',
+            text: 'Compra del pasaje realizada con exito',
+            iconColor: '#019199',
+            imageUrl: 'Otros/aeroplano.png',
+            confirmButtonText: 'Cerrar',
+            confirmButtonColor: '#85f9ff'
+        })
+    }
     function renderizarTotal(totalViaje) {
         document.getElementById("ticket").style.display = "block"
         for (const p of totalViaje) {
@@ -105,14 +130,18 @@ function programa(paises) {
         <h2>Precio final de tu vuelo</h2>
          <img src=Otros/${totalViaje.at(0).destino}.png>
           <p>${totalViaje.at(0).destino}</p>
-          <p>$${totalViaje.at(0).valor}</p>
-          <p>X ${totalViaje.at(1).pasajeros} pasajeros</p>
-          <p>Equipaje</p
+          <p>$${totalViaje.at(0).valor}
+          x ${totalViaje.at(1).pasajeros} pasajeros</p>
+          <p>Total del equipaje seleccionado: $${totalViaje.at(-1).totalEquipaje}</p>
+          <h3> TOTAL: $${(totalViaje.at(0).valor * totalViaje.at(1).pasajeros) + totalViaje.at(-1).totalEquipaje}</h3>
         </div>
          `
         }
     }
 }
+
+
+
 
 
 

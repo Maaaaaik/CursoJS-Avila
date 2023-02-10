@@ -1,23 +1,25 @@
-@font-face {
-    font-family: 'Gsans';
-    src: url(Otros/Fonts/ProductSansRegular.ttf) format(truetype);
-    font-weight: normal;
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+
+    }
+
+    100% {
+        opacity: 100;
+    }
 }
 
-@font-face {
-    font-family: 'GsansI';
-    src: url(Otros/Fonts/ProductSansItalic.ttf) format(truetype);
-}
-
-@font-face {
-    font-family: 'GsansB';
-    src: url(Otros/Fonts/ProductSansBold.ttf) format(truetype);
+html {
+    scroll-behavior: smooth;
 }
 
 html body {
     width: 100%;
     height: 100%;
     margin: 0px;
+
 }
 
 body {
@@ -96,8 +98,10 @@ nav ul {
 
 #containerDestinos {
     display: flex;
+    flex-wrap: wrap;
     margin-left: 60px;
     margin-right: 60px;
+    margin-bottom: 60px;
     gap: 20px;
 }
 
@@ -131,6 +135,11 @@ nav ul {
 
 .destino h3 {
     user-select: none;
+}
+
+#pasajeYEquipaje {
+    display: flex;
+    width: 100%;
 }
 
 #pasajeros {
@@ -192,6 +201,7 @@ nav ul {
 #equipajes {
     display: none;
     margin: 60px 0px;
+    text-align: center;
 }
 
 .equipaje h2 {
@@ -214,6 +224,7 @@ nav ul {
 }
 
 .infoEquipaje {
+    display: none;
     display: grid;
     margin: 40px 0px;
     grid-template-columns: 1fr 1fr 1fr;
@@ -227,7 +238,7 @@ nav ul {
 #ticket {
     display: none;
     background-color: #f8ff8f;
-    border: 8px solid rgba(255, 249, 114, 1);
+    border: 8px solid #fff972;
     border-radius: 20px;
     width: 600px;
     height: auto;
@@ -235,5 +246,118 @@ nav ul {
     margin: 30px;
     margin-top: 50px;
     text-align: center;
+    color: #2f4f4f;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.cta {
+    display: flex;
+    padding: 10px 45px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
     color: darkslategray;
+    background: rgba(255, 249, 114, 1);
+    transition: 1s;
+    box-shadow: 6px 6px 0 #2f4f4f;
+    transform: skewX(-15deg);
+}
+
+.cta:focus {
+    outline: none;
+}
+
+.cta:hover {
+    transition: 0.5s;
+    box-shadow: 10px 10px 0 #019199;
+}
+
+.cta span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 0px;
+}
+
+.cta:hover span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 45px;
+}
+
+span {
+
+    transform: skewX(15deg)
+}
+
+
+
+span:nth-child(2) {
+    width: 20px;
+    margin-left: 30px;
+    position: relative;
+    top: 12%;
+}
+
+/**************SVG****************/
+
+path.one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+path.two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+
+@keyframes color_anim {
+    0% {
+        fill: darkslategray;
+    }
+
+    50% {
+        fill: #FBC638;
+    }
+
+    100% {
+        fill: darkslategray;
+    }
+}
+
+#ticketYBoton {
+    display: flex;
+    width: 100%;
+    margin-left: 70px;
+}
+
+#botonFinal {
+    display: flex;
+    margin-left: 80px;
+    justify-content: center;
+    align-items: center;
+}
+
+#mascaraBoton {
+    display: none;
+    width: 50%;
+    height: fit-content;
 }
